@@ -1,0 +1,25 @@
+---
+// import i18next from "i18next";
+import ScrollToTop from "../components/ScrollToTop.astro";
+import BaseHead from "../components/BaseHead.astro";
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<!-- <html lang={i18next.language} data-theme="dark"> -->
+<html data-theme="dark">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body class="text-slate-900 relative bg-slate-600 h-screen w-screen">
+    <main>
+      <div id="__top" class="relative">
+        <!-- <HeadBar /> -->
+        <slot />
+        <!-- <FootBar /> -->
+        <ScrollToTop />
+      </div>
+    </main>
+  </body>
+</html>

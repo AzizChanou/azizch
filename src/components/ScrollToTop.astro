@@ -1,0 +1,36 @@
+---
+// import { Icon } from "astro-icon/components";
+---
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll('a[href^="#"]');
+    const scrollToTopButton = document.getElementById("top");
+
+    links.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const target = document.querySelector(link.getAttribute("href"));
+        target.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    window.addEventListener("scroll", function () {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 0) {
+        scrollToTopButton.style.display = "flex";
+      } else {
+        scrollToTopButton.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<a
+  id="top"
+  href="#__top"
+  class="fixed bottom-8 right-8 md:bottom-12 md:right-14 rounded h-5 w-5 md:w-10 md:h-10 text-white bg-erp-blue hidden justify-center items-center"
+>
+  <!-- <Icon transition:name="fade" name="mdi:chevron-up" /> -->
+</a>
