@@ -2,7 +2,13 @@
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "atkinson": ['Atkinson', 'sans-serif'],
+        "jost": "Jost, sans-serif",
+        "montserrat-alternates": "Montserrat-Alternates, sans-serif"
+      },
+    },
   },
   plugins: [],
 }

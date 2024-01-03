@@ -1,4 +1,5 @@
 @import url(font.css);
+@import url(swup.css);
 /* @import url(dot.css); */
 /* @import "atropos/css"; */
 
@@ -9,7 +10,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #005b82;
+    background-color: white;
 }
 
 ::-webkit-scrollbar-track {

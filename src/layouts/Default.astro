@@ -2,6 +2,8 @@
 // import i18next from "i18next";
 import ScrollToTop from "../components/ScrollToTop.astro";
 import BaseHead from "../components/BaseHead.astro";
+import HeadBar from "../components/HeadBar.astro";
+import FootBar from "../components/FootBar.astro";
 
 const { title, description } = Astro.props;
 ---
@@ -12,14 +14,37 @@ const { title, description } = Astro.props;
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body class="text-slate-900 relative bg-slate-600 h-screen w-screen">
-    <main>
-      <div id="__top" class="relative">
-        <!-- <HeadBar /> -->
+  <body
+    class="h-screen w-screen bg-black text-white overflow-x-hidden overscroll-y-auto"
+  >
+    <main class="relative h-full w-full">
+      <div
+        id="swup"
+        id="__top"
+        class="max-w-screen-xl mx-auto p-6 flex flex-col justify-between h-full transition-fade"
+      >
+        <HeadBar />
         <slot />
-        <!-- <FootBar /> -->
+        <FootBar />
         <ScrollToTop />
       </div>
+      <img
+        src="/img/pxfuel.jpg"
+        alt="gradient"
+        class="thumbnail absolute -top-[1rem] -z-50 blur-lg object-cover overflow-hidden"
+        loading="lazy"
+      />
     </main>
+    <script>
+      import simpleParallax from "simple-parallax-js";
+      import Swup from "swup";
+
+      const swup = new Swup();
+
+      var image = document.getElementsByClassName("thumbnail");
+      new simpleParallax(image, {
+        orientation: "right",
+      });
+    </script>
   </body>
 </html>

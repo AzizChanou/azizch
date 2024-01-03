@@ -1,5 +1,17 @@
-/* @font-face {
+@font-face {
+    font-family: 'Atkinson';
+    font-style: normal;
+    src: url('/fonts/Atkinson-Regular.woff') format('woff');
+}
+
+@font-face {
     font-family: 'Jost';
     font-style: normal;
-    src: url('../fonts/jost/Jost-Regular.ttf') format('truetype');
-} */
+    src: url('/fonts/Jost-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat-Alternates';
+    font-style: normal;
+    src: url('/fonts/MontserratAlternates-Regular.ttf') format('truetype');
+}
