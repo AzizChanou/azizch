@@ -15,36 +15,30 @@ const { title, description } = Astro.props;
     <BaseHead title={title} description={description} />
   </head>
   <body
-    class="h-screen w-screen bg-black text-white overflow-x-hidden overscroll-y-auto"
+    class="h-dvh w-screen bg-black text-white overflow-x-hidden relative overscroll-y-auto font-jost"
   >
+  <span class="cursor-dot"></span>
+  <span class="cursor-outline"></span>
     <main class="relative h-full w-full">
       <div
-        id="swup"
         id="__top"
-        class="max-w-screen-xl mx-auto p-6 flex flex-col justify-between h-full transition-fade"
+        class="min-h-full mx-auto flex flex-col justify-between px-6 h-full w-full"
       >
-        <HeadBar />
-        <slot />
-        <FootBar />
+        <div class="h-full w-full">
+          <HeadBar />
+          <div id="swup" class="transition-fade w-full">
+            <slot />
+          </div>
+        </div>
         <ScrollToTop />
+        <FootBar />
       </div>
-      <img
+      <!-- <img
         src="/img/pxfuel.jpg"
         alt="gradient"
         class="thumbnail absolute -top-[1rem] -z-50 blur-lg object-cover overflow-hidden"
         loading="lazy"
-      />
+      /> -->
     </main>
-    <script>
-      import simpleParallax from "simple-parallax-js";
-      import Swup from "swup";
-
-      const swup = new Swup();
-
-      var image = document.getElementsByClassName("thumbnail");
-      new simpleParallax(image, {
-        orientation: "right",
-      });
-    </script>
   </body>
 </html>

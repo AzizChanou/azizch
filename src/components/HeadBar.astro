@@ -1,30 +1,75 @@
 ---
 import { Icon } from "astro-icon/components";
+
+function toggleTheme() {
+  console.log(localStorage.theme);
+  if (localStorage.theme === "dark") {
+    localStorage.theme = "light";
+  } else {
+    localStorage.theme = "dark";
+  }
+}
 ---
 
-<header class="flex justify-between py-10 w-full text-2xl">
+<header class="flex justify-between w-full text-2xl my-4 md:py-6">
   <div class="flex justify-between">
-    <ul class="flex space-x-4 font-jost">
-      <li><a href="/">Home</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/articles">Articles</a></li>
-      <li><a href="/contacts">Contacts</a></li>
+    <ul class="hidden space-x-4 md:flex">
+      <li class=""><a href="/">Home</a></li>
+      <li class=""><a href="/projects">Projects</a></li>
+      <li class=""><a href="/articles">Articles</a></li>
+      <li class=""><a href="/contacts">Contacts</a></li>
     </ul>
+    <button>
+      <Icon name="mdi:menu" class="text-3xl block md:hidden" />
+    </button>
   </div>
-  <div class="flex justify-between">
+  <div class="flex justify-between items-center space-x-8">
     <ul class="flex space-x-4">
-      <li>
-        <Icon name="mdi:github" />
+      <li class="hover:text-slate-500 duration-300">
+        <a href="https://github.com/AzizChanou" target="_blank">
+          <Icon name="mdi:github" />
+        </a>
       </li>
-      <li>
-        <Icon name="mdi:linkedin" />
+      <li class="hover:text-blue-500 duration-200">
+        <a href="https://www.linkedin.com/in/aziz-chanou/" target="_blank">
+          <Icon name="mdi:linkedin" />
+        </a>
       </li>
-      <li>
-        <Icon name="mdi:twitter" />
+      <li class="hover:text-blue-500 duration-300">
+        <a href="https://twitter.com/azizchanou" target="_blank">
+          <Icon name="mdi:twitter" />
+        </a>
       </li>
+      <li class="hover:text-pink-500 duration-300">
+        <a href="https://twitter.com/azizchanou" target="_blank">
+          <Icon name="mdi:instagram" />
+        </a>
+      </li>
+    </ul>
+    <ul class="hidden space-x-4 md:flex">
       <li>
-        <Icon name="mdi:instagram" />
+        <button
+          id="theme-button"
+          class="hover:bg-slate-100/30 p-2 duration-300 rounded-full"
+        >
+          <Icon name="mdi:theme-light-dark" class="text-3xl" />
+        </button>
       </li>
     </ul>
   </div>
 </header>
+
+<script>
+  const themeButton = document.getElementById("theme-button");
+
+  function toggleTheme() {
+    console.log(localStorage.theme);
+    if (localStorage.theme === "dark") {
+      localStorage.theme = "light";
+    } else {
+      localStorage.theme = "dark";
+    }
+  }
+
+  themeButton?.addEventListener("click", toggleTheme);
+</script>

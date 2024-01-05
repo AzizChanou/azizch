@@ -1,9 +1,23 @@
 ---
-
+import { Icon } from "astro-icon/components";
 ---
 
 <div>
-  <div class="w-full h-full flex justify-center items-center">
-    <h2 class="text-9xl font-montserrat-alternates font-bold">Hi, I'm Kyogre</h2>
+  <div
+    class="relative w-full h-full flex flex-col justify-center items-center"
+  >
+    <div class="py-14">
+      <h4 class="text-start text-4xl font-medium">Hi, I'm</h4>
+      <h1 class="text-[200px] font-montserrat-alternates font-bold">
+        <span>Aziz</span>
+        <span class="text-6xl">CHANOU</span>
+      </h1>
+      <h4 class="text-end text-4xl font-medium">Software engineer</h4>
+    </div>
+    <div class="w-full flex justify-center items-center">
+      <a href="#pricing">
+        <Icon name="mdi:chevron-down" class="text-5xl animate-bounce" />
+      </a>
+    </div>
   </div>
 </div>

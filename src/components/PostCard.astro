@@ -1,0 +1,36 @@
+---
+const { post } = Astro.props;
+---
+
+<script>
+  import Atropos from "atropos";
+
+  class PostCard extends HTMLElement {
+    constructor() {
+      super();
+      const post = this.dataset.post;
+      Atropos({
+        el: `.post-${post}`,
+        activeOffset: 90,
+        shadowScale: 0.75,
+      });
+    }
+  }
+  customElements.define("post-card", PostCard);
+</script>
+
+<post-card class={`atropos post-${post.id}`} data-post={post.id}>
+  <div class="atropos-scale">
+    <div class="atropos-rotate">
+      <div
+        class="atropos-inner h-64 w-full bg-white/30 rounded flex justify-center items-center"
+      >
+        <img
+          src={`https://picsum.photos/id/${post.id}/200`}
+          alt=""
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</post-card>

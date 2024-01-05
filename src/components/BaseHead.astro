@@ -28,10 +28,14 @@ const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+<!-- Script URL -->
+<script src="../assets/ts"></script>
+
 <!-- Primary Meta Tags -->
 <title>{full_title}</title>
 <meta name="title" content={full_title} />
 <meta name="description" content={description} />
+
 <SEO
   title={full_title}
   description={description}

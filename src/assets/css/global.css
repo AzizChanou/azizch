@@ -1,7 +1,8 @@
 @import url(font.css);
+@import url(dot.css);
 @import url(swup.css);
-/* @import url(dot.css); */
-/* @import "atropos/css"; */
+/* @import url(glide.css); */
+@import 'atropos/scss';
 
 ::-webkit-scrollbar {
     width: 6px;
@@ -17,15 +18,3 @@
     background-color: transparent;
 }
 
-* {
-    /* border: 0.1px solid red !important; */
-}
-
-html.is-changing .transition-fade {
-    transition: opacity 0.1s;
-    opacity: 1;
-}
-
-html.is-animating .transition-fade {
-    opacity: 0;
-}

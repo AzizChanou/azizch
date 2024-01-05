@@ -1,7 +1,16 @@
 ---
+import PostCard from "../components/PostCard.astro";
 import Default from "../layouts/Default.astro";
 ---
 
 <Default>
-  <div>Contacts</div>
+  <div class="h-full w-full flex flex-col justify-center items-center">
+    <h3 class="text-5xl font-montserrat-alternates font-medium">Projects</h3>
+    <div class="h-full w-full mt-4 grid grid-cols-3 gap-8">
+      <PostCard post={{ id: 12 }} />
+      <PostCard post={{ id: 265 }} />
+      <PostCard post={{ id: 34}} />
+      <PostCard post={{ id: 45 }} />
+    </div>
+  </div>
 </Default>
