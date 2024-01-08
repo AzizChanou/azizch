@@ -19,19 +19,15 @@ const {
 const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
 ---
 
-<!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href={SITE_ICON} />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
-<!-- Script URL -->
 <script src="../assets/ts"></script>
 
-<!-- Primary Meta Tags -->
 <title>{full_title}</title>
 <meta name="title" content={full_title} />
 <meta name="description" content={description} />
@@ -53,8 +49,8 @@ const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
     description: description,
     image: image,
     imageAlt: full_title,
-    site: "@mainfo",
-    creator: "@mainfo",
+    site: "@azizchanou",
+    creator: "@azizchanou",
   }}
   extend={{
     link: [{ rel: "icon", href: SITE_ICON, type: "image/svg+xml" }],

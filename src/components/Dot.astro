@@ -1,0 +1,101 @@
+---
+
+---
+
+<style is:global>
+  body {
+    cursor: none;
+  }
+
+  .cursor-dot {
+    width: 5px;
+    height: 5px;
+    background: #fff;
+  }
+
+  .cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 2px solid hsl(0, 0%, 100%, 0.5);
+  }
+
+  .cursor-dot,
+  .cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+  }
+
+  @media only screen and (max-width: 1280px) {
+    .cursor-dot,
+    .cursor-outline {
+      display: none;
+    }
+
+    body {
+      cursor: default;
+    }
+  }
+</style>
+
+<span class="cursor-dot"></span>
+<span class="cursor-outline"></span>
+
+<script>
+  document.addEventListener("astro:page-load", function () {
+    const cursorDot = document.querySelector(".cursor-dot") as HTMLElement;
+    const cursorOutline = document.querySelector(".cursor-outline");
+
+    /**
+     * Changes the cursor color on hover based on the event target.
+     * @param event - The event object.
+     * @returns void
+     */
+    function changeCursorColorOnHover(event: MouseEvent): void {
+      const isLink: boolean =
+        (event.target as HTMLElement).tagName.toLowerCase() === "a";
+      const isImg: boolean =
+        (event.target as HTMLElement).tagName.toLowerCase() === "img";
+
+      if (isLink || isImg) {
+        cursorDot.style.background = "#00EBA6";
+        cursorOutline.style.borderColor = "#00EBA6";
+        cursorOutline.style.background = "rgba(0, 235, 166, 0.50)";
+      } else {
+        cursorDot.style.background = "#fff";
+        cursorOutline.style.borderColor = "hsl(0, 0%, 100%, 0.5)";
+        cursorOutline.style.background = "rgba(0, 235, 166, 0.00)";
+      }
+    }
+
+    window.addEventListener("mousemove", function (e) {
+      const posX = e.clientX;
+      const posY = e.clientY;
+
+      cursorDot.style.left = `${posX}px`;
+      cursorDot.style.top = `${posY}px`;
+
+      cursorOutline.animate(
+        {
+          left: `${posX}px`,
+          top: `${posY}px`,
+        },
+        {
+          duration: 500,
+          easing: "ease-out",
+          fill: "forwards",
+        }
+      );
+    });
+
+    document.addEventListener("mouseover", changeCursorColorOnHover);
+    document.addEventListener("mouseout", () => {
+      cursorDot.style.background = "#fff";
+      cursorOutline.style.borderColor = "hsl(0, 0%, 100%, 0.5)";
+    });
+  });
+</script>

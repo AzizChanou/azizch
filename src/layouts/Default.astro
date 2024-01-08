@@ -1,28 +1,26 @@
 ---
-// import i18next from "i18next";
 import ScrollToTop from "../components/ScrollToTop.astro";
 import BaseHead from "../components/BaseHead.astro";
 import HeadBar from "../components/HeadBar.astro";
 import FootBar from "../components/FootBar.astro";
+import Dot from "../components/Dot.astro";
 
 const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<!-- <html lang={i18next.language} data-theme="dark"> -->
 <html data-theme="dark">
   <head>
     <BaseHead title={title} description={description} />
   </head>
   <body
-    class="h-dvh w-screen bg-black text-white overflow-x-hidden relative overscroll-y-auto font-jost"
+    class="min-h-screen w-screen bg-black text-white overflow-x-hidden relative overscroll-y-auto font-jost"
   >
-  <span class="cursor-dot"></span>
-  <span class="cursor-outline"></span>
-    <main class="relative h-full w-full">
+    <!-- <Dot /> -->
+    <main class="relative min-h-screen w-full">
       <div
         id="__top"
-        class="min-h-full mx-auto flex flex-col justify-between px-6 h-full w-full"
+        class="min-h-screen mx-auto flex flex-col justify-between px-6 h-full w-full"
       >
         <div class="h-full w-full">
           <HeadBar />
@@ -33,12 +31,6 @@ const { title, description } = Astro.props;
         <ScrollToTop />
         <FootBar />
       </div>
-      <!-- <img
-        src="/img/pxfuel.jpg"
-        alt="gradient"
-        class="thumbnail absolute -top-[1rem] -z-50 blur-lg object-cover overflow-hidden"
-        loading="lazy"
-      /> -->
     </main>
   </body>
 </html>
