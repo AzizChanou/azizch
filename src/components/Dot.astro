@@ -46,9 +46,11 @@
 <span class="cursor-outline"></span>
 
 <script>
-  document.addEventListener("astro:page-load", function () {
+  window.onload = () => {
     const cursorDot = document.querySelector(".cursor-dot") as HTMLElement;
-    const cursorOutline = document.querySelector(".cursor-outline");
+    const cursorOutline = document.querySelector(
+      ".cursor-outline"
+    ) as HTMLElement;
 
     /**
      * Changes the cursor color on hover based on the event target.
@@ -62,13 +64,13 @@
         (event.target as HTMLElement).tagName.toLowerCase() === "img";
 
       if (isLink || isImg) {
-        cursorDot.style.background = "#00EBA6";
-        cursorOutline.style.borderColor = "#00EBA6";
-        cursorOutline.style.background = "rgba(0, 235, 166, 0.50)";
+        cursorDot.style.background = "#BFD7EA";
+        cursorOutline.style.borderColor = "#BFD7EA";
+        cursorOutline.style.background = "087E8B50";
       } else {
         cursorDot.style.background = "#fff";
-        cursorOutline.style.borderColor = "hsl(0, 0%, 100%, 0.5)";
-        cursorOutline.style.background = "rgba(0, 235, 166, 0.00)";
+        cursorOutline.style.borderColor = "#BFD7EA";
+        cursorOutline.style.background = "#087E8B30";
       }
     }
 
@@ -97,5 +99,5 @@
       cursorDot.style.background = "#fff";
       cursorOutline.style.borderColor = "hsl(0, 0%, 100%, 0.5)";
     });
-  });
+  };
 </script>
