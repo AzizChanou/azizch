@@ -1,0 +1,66 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div
+  id="menu"
+  class="transition-all ease-in-out duration-500 flex overflow-auto fixed top-0 text-white z-10 left-0 h-full bg-black/70 blur-3xl flex-col justify-between md:hidden w-0"
+>
+  <div class="p-8 py-20">
+    <ul class="flex flex-col space-y-6 font-medium divide-y-2 divide-y-reverse">
+      <li></li>
+
+      <li>Home</li>
+
+      <li>Home</li>
+
+      <li>Home</li>
+
+      <li>Home</li>
+    </ul>
+  </div>
+  <span class="block justify-center p-10">
+    <div class="flex flex-wrap justify-center gap-6 mt-6">
+      <a href="https://web.facebook.com/studiomcandco" target="blank">
+        <Icon
+          name="mdi:facebook"
+          class="hover:scale-105 hover:text-blue-400 text-xl duration-500"
+        />
+      </a>
+      <a href="https://www.instagram.com/studiomcandco" target="blank">
+        <Icon
+          name="mdi:instagram"
+          class="hover:scale-105 hover:text-red-400 text-xl duration-500"
+        />
+      </a>
+      <a href="https://www.linkedin.com/company/studiomcandco" target="blank">
+        <Icon
+          name="mdi:linkedin"
+          class="hover:scale-105 hover:text-blue-500 text-xl duration-500"
+        />
+      </a>
+      <a href="https://twitter.com/studiomcandco" target="blank">
+        <Icon
+          name="mdi:twitter"
+          class="hover:scale-105 hover:text-blue-300 text-xl duration-500"
+        />
+      </a>
+    </div>
+  </span>
+</div>
+
+<script>
+  const navMenu = document.querySelector("#navMenu") as HTMLElement;
+  const menu = document.querySelector("#menu") as HTMLElement;
+  navMenu.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    menu.classList.toggle("w-full");
+    menu.classList.toggle("w-0");
+  });
+
+  const men = () => {
+    navMenu.classList.toggle("active");
+    menu.classList.toggle("w-full");
+    menu.classList.toggle("w-0");
+  };
+</script>

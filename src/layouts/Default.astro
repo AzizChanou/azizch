@@ -4,6 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import HeadBar from "../components/HeadBar.astro";
 import FootBar from "../components/FootBar.astro";
 import Dot from "../components/Dot.astro";
+import MobileMenu from "../components/MobileMenu.astro";
 
 const { title, description } = Astro.props;
 ---
@@ -14,14 +15,15 @@ const { title, description } = Astro.props;
     <BaseHead title={title} description={description} />
   </head>
   <body
-    class="max-h-dvh h-lvh mx-auto w-full bg-slate-950 text-white overflow-x-hidden relative overscroll-y-auto font-jost"
+    class="max-h-dvh h-full mx-auto w-full bg-slate-950 text-white overflow-x-hidden relative overscroll-y-auto font-jost"
   >
     <main class="min-h-dvh w-full max-w-screen-xl mx-auto">
       <div
         id="__top"
-        class="min-h-dvh mx-auto flex flex-col justify-between px-6 h-full w-full"
+        class="mx-auto flex flex-col justify-between px-6 min-h-dvh h-full w-full"
       >
         <div class="h-full w-full">
+          <MobileMenu />
           <HeadBar />
           <div id="swup" class="transition-fade w-full h-full">
             <slot />
@@ -31,12 +33,13 @@ const { title, description } = Astro.props;
         <FootBar />
       </div>
     </main>
-    <img
-      src="/img/pxfuel.jpg"
-      alt="gradient"
+    <video
+      src="/videos/background.mp4"
       class="thumbnail absolute h-full w-full -top-[1rem] -z-50 blur-lg object-cover overflow-hidden"
-      loading="lazy"
-    />
+      loop
+      muted
+      preload="auto"
+      autoplay></video>
     <Dot />
   </body>
 </html>

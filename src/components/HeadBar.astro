@@ -1,17 +1,17 @@
 ---
 import { Icon } from "astro-icon/components";
-
 ---
 
 <header class="flex justify-between w-full text-2xl my-4 md:py-6">
   <div class="flex justify-between">
     <ul class="hidden space-x-4 md:flex">
       <li class=""><a href="/">Home</a></li>
+      <li class=""><a href="/stack">Stack</a></li>
       <li class=""><a href="/projects">Projects</a></li>
       <li class=""><a href="/articles">Articles</a></li>
       <li class=""><a href="/contacts">Contacts</a></li>
     </ul>
-    <button>
+    <button id="navMenu">
       <Icon name="mdi:menu" class="text-3xl block md:hidden" />
     </button>
   </div>
@@ -39,29 +39,49 @@ import { Icon } from "astro-icon/components";
       </li>
     </ul>
     <ul class="space-x-4">
-      <li>
+      <li class="group relative">
         <button
-          id="theme-button"
+          id="download-cv"
           class="hover:bg-slate-100/30 p-2 duration-300 rounded-full"
         >
-          <Icon name="mdi:theme-light-dark" class="text-3xl" />
+          <Icon name="mdi:download" class="text-3xl" />
         </button>
+        <span
+          class="invisible group-hover:visible absolute top-12 left-1/2 translate-x-[-50%] duration-300 text-sm text-nowrap"
+          >Télécharger mon CV</span
+        >
       </li>
     </ul>
   </div>
 </header>
 
 <script>
-  const themeButton = document.getElementById("theme-button");
+  const downloadCvButton = document.getElementById("download-cv");
 
-  function toggleTheme() {
-    console.log(localStorage.theme);
-    if (localStorage.theme === "dark") {
-      localStorage.theme = "light";
-    } else {
-      localStorage.theme = "dark";
+  async function downloadFile() {
+    const url = `/public/download/Aziz_CHANOU_CV.pdf`;
+
+    const response = await fetch(url, {
+      method: "GET",
+    });
+
+    if (response.status !== 200) {
+      throw new Error(
+        `Téléchargement du fichier Aziz_CHANOU_CV.pdf a échoué. Code d'erreur : ${response.status}`
+      );
     }
+
+    const fileData = await response.blob();
+
+    const downloadLink = document.createElement("a");
+    downloadLink.href = window.URL.createObjectURL(fileData);
+    downloadLink.download = "Aziz_CHANOU_CV.pdf";
+
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+
+    document.body.removeChild(downloadLink);
   }
 
-  themeButton?.addEventListener("click", toggleTheme);
+  downloadCvButton?.addEventListener("click", downloadFile);
 </script>
