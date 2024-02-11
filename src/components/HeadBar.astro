@@ -5,11 +5,11 @@ import { Icon } from "astro-icon/components";
 <header class="flex justify-between w-full text-2xl my-4 md:py-6">
   <div class="flex justify-between">
     <ul class="hidden space-x-4 md:flex">
-      <li class=""><a href="/">Home</a></li>
-      <li class=""><a href="/stack">Stack</a></li>
-      <li class=""><a href="/projects">Projects</a></li>
-      <li class=""><a href="/articles">Articles</a></li>
-      <li class=""><a href="/contacts">Contacts</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/stack">Stack</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contacts">Contacts</a></li>
     </ul>
     <button id="navMenu">
       <Icon name="mdi:menu" class="text-3xl block md:hidden" />
@@ -17,22 +17,22 @@ import { Icon } from "astro-icon/components";
   </div>
   <div class="flex justify-between items-center space-x-8">
     <ul class="flex space-x-4">
-      <li class="hover:text-slate-500 duration-300">
+      <li class="hover:text-slate-500 hover:scale-110 duration-300">
         <a href="https://github.com/AzizChanou" target="_blank">
           <Icon name="mdi:github" />
         </a>
       </li>
-      <li class="hover:text-blue-500 duration-200">
+      <li class="hover:text-blue-500 hover:scale-110 duration-300">
         <a href="https://www.linkedin.com/in/aziz-chanou/" target="_blank">
           <Icon name="mdi:linkedin" />
         </a>
       </li>
-      <li class="hover:text-blue-500 duration-300">
+      <li class="hover:text-blue-500 hover:scale-110 duration-300">
         <a href="https://twitter.com/azizchanou" target="_blank">
           <Icon name="mdi:twitter" />
         </a>
       </li>
-      <li class="hover:text-pink-500 duration-300">
+      <li class="hover:text-pink-500 hover:scale-110 duration-300">
         <a href="https://twitter.com/azizchanou" target="_blank">
           <Icon name="mdi:instagram" />
         </a>
@@ -59,7 +59,7 @@ import { Icon } from "astro-icon/components";
   const downloadCvButton = document.getElementById("download-cv");
 
   async function downloadFile() {
-    const url = `/public/download/Aziz_CHANOU_CV.pdf`;
+    const url = `/download/Aziz_CHANOU_CV.pdf`;
 
     const response = await fetch(url, {
       method: "GET",

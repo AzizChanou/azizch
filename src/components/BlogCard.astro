@@ -1,0 +1,49 @@
+---
+const { blog } = Astro.props;
+---
+
+<script>
+  import Atropos from "atropos";
+
+  class BlogCard extends HTMLElement {
+    constructor() {
+      super();
+      const blog = this.dataset.blog;
+      Atropos({
+        el: `.blog-${blog}`,
+        activeOffset: 90,
+        shadowScale: 0.75,
+      });
+    }
+  }
+  customElements.define("blog-card", BlogCard);
+</script>
+
+<blog-card
+  class={`p-6 overflow-hidden rounded-lg shadow shadow-slate-200 hover:bg-slate-300 hover:text-slate-950 duration-300 w-full atropos blog-${blog.id}`}
+  data-blog={blog.id}
+>
+  <a href={`/blog/${blog.slug}/`}>
+    <article>
+      <h2 class="text-xl font-bold">Sed diam massa, semper a condimentum</h2>
+      <p class="mt-4">
+        Morbi porttitor mi in diam scelerisque commodo. Proin sed laoreet
+        libero. Fusce faucibus porttitor lacus, at blandit mauris blandit eget.
+        Donec facilisis lorem et risus commodo, quis auctor nulla varius.
+        Pellentesque facilisis feugiat turpis, id molestie augue semper quis.
+        Nunc ornare eget est sit amet elementum.
+      </p>
+      <div class="flex items-center mt-8 space-x-4">
+        <img
+          src="https://source.unsplash.com/100x100/?portrait"
+          alt=""
+          class="w-10 h-10 rounded-full"
+        />
+        <div>
+          <h3 class="text-sm font-medium">Leroy Jenkins</h3>
+          <time datetime="2021-02-18" class="text-sm"> Feb 18th 2021</time>
+        </div>
+      </div>
+    </article>
+  </a>
+</blog-card>
