@@ -9,41 +9,14 @@ export default {
         "atkinson": ['Atkinson', 'sans-serif'],
         "jost": "Jost, sans-serif",
         "montserrat-alternates": "Montserrat-Alternates, sans-serif",
-        clash: ['Clash Display', ...defaultTheme.fontFamily.sans],
       },
       animation: {
-        reveal: 'reveal 0.8s forwards',
-        'loop-scroll': 'loop-scroll 50s linear infinite',
-        wiggle: 'wiggle 0.3s ease-in-out infinite',
-        typing: 'typing 7s infinite steps(44)',
+        wiggle: 'wiggle 0.2s ease-in-out',
       },
       keyframes: {
-        reveal: {
-          '0%': {
-            transform: 'translatey(100%)',
-          },
-          '100%': {
-            transform: 'translatey(0)',
-          },
-        },
-        'loop-scroll': {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-100%)' },
-        },
         wiggle: {
           '0%, 100%': { transform: 'rotate(-5deg)' },
           '50%': { transform: 'rotate(5deg)' },
-        },
-        typing: {
-          '0%': {
-            width: '0',
-          },
-          '80%': {
-            width: '44ch',
-          },
-          '100%': {
-            width: '44ch',
-          },
         },
       },
     },

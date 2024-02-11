@@ -5,11 +5,19 @@ import { Icon } from "astro-icon/components";
 <header class="flex justify-between w-full text-2xl my-4 md:py-6">
   <div class="flex justify-between">
     <ul class="hidden space-x-4 md:flex">
-      <li><a href="/">Home</a></li>
-      <li><a href="/stack">Stack</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/contacts">Contacts</a></li>
+      <li class="hover:text-slate-300 duration-300"><a href="/">Home</a></li>
+      <li class="hover:text-slate-300 duration-300">
+        <a href="/stack">Stack</a>
+      </li>
+      <li class="hover:text-slate-300 duration-300">
+        <a href="/projects">Projects</a>
+      </li>
+      <li class="hover:text-slate-300 duration-300">
+        <a href="/blog">Blog</a>
+      </li>
+      <li class="hover:text-slate-300 duration-300">
+        <a href="/contacts">Contacts</a>
+      </li>
     </ul>
     <button id="navMenu">
       <Icon name="mdi:menu" class="text-3xl block md:hidden" />
@@ -38,17 +46,29 @@ import { Icon } from "astro-icon/components";
         </a>
       </li>
     </ul>
-    <ul class="space-x-4">
+    <ul class="flex space-x-1">
       <li class="group relative">
         <button
           id="download-cv"
-          class="hover:bg-slate-100/30 p-2 duration-300 rounded-full"
+          class="hover:bg-slate-100/30 p-2 duration-300 rounded-full hover:animate-wiggle"
         >
-          <Icon name="mdi:download" class="text-3xl" />
+          <Icon name="mdi:file-document-arrow-right" class="text-3xl" />
         </button>
         <span
           class="invisible group-hover:visible absolute top-12 left-1/2 translate-x-[-50%] duration-300 text-sm text-nowrap"
           >Télécharger mon CV</span
+        >
+      </li>
+      <li class="group relative">
+        <button
+          id="theme-button"
+          class="hover:bg-slate-100/30 p-2 duration-300 rounded-full hover:animate-wiggle"
+        >
+          <Icon name="mdi:theme-light-dark" class="text-3xl" />
+        </button>
+        <span
+          class="invisible group-hover:visible absolute top-12 left-1/2 translate-x-[-50%] duration-300 text-sm text-nowrap"
+          >Switcher de thème</span
         >
       </li>
     </ul>
@@ -57,6 +77,17 @@ import { Icon } from "astro-icon/components";
 
 <script>
   const downloadCvButton = document.getElementById("download-cv");
+  const themeButton = document.getElementById("theme-button");
+
+  function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle("invert");
+    if (localStorage.theme === "dark") {
+      localStorage.theme = "light";
+    } else {
+      localStorage.theme = "dark";
+    }
+  }
 
   async function downloadFile() {
     const url = `/download/Aziz_CHANOU_CV.pdf`;
@@ -67,7 +98,7 @@ import { Icon } from "astro-icon/components";
 
     if (response.status !== 200) {
       throw new Error(
-        `Téléchargement du fichier Aziz_CHANOU_CV.pdf a échoué. Code d'erreur : ${response.status}`
+        `Téléchargement du fichier Aziz_CHANOU_CV.pdf a échoué. Code d'erreur : ${response.status}`,
       );
     }
 
@@ -83,5 +114,6 @@ import { Icon } from "astro-icon/components";
     document.body.removeChild(downloadLink);
   }
 
+  themeButton?.addEventListener("click", toggleTheme);
   downloadCvButton?.addEventListener("click", downloadFile);
 </script>

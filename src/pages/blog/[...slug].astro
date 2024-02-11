@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import Default from "../../layouts/Default.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 
@@ -15,5 +16,47 @@ const { Content } = await post.render();
 ---
 
 <Default {...post.data}>
-  <Content />
+  <div class="space-y-4">
+    <h1
+      class="text-4xl md:text-6xl text-center font-montserrat-alternates font-semibold"
+    >
+      {post.data.title}
+    </h1>
+    <img
+      src={post.data.heroImage}
+      alt={post.data.title}
+      width="100%"
+      height="100%"
+      class="w-full h-64 object-cover rounded"
+      loading="lazy"
+    />
+    <Content />
+    <div class="py-4 flex justify-center">
+      <div class="flex flex-col items-center space-y-4">
+        <h4 class="text-2xl">Partager sur les réseaux sociaux</h4>
+        <ul class="flex space-x-4 text-2xl">
+          <li class="hover:text-slate-500 hover:scale-110 duration-300">
+            <a href="https://github.com/AzizChanou" target="_blank">
+              <Icon name="mdi:github" />
+            </a>
+          </li>
+          <li class="hover:text-blue-500 hover:scale-110 duration-300">
+            <a href="https://www.linkedin.com/in/aziz-chanou/" target="_blank">
+              <Icon name="mdi:linkedin" />
+            </a>
+          </li>
+          <li class="hover:text-blue-500 hover:scale-110 duration-300">
+            <a href="https://twitter.com/azizchanou" target="_blank">
+              <Icon name="mdi:twitter" />
+            </a>
+          </li>
+          <li class="hover:text-pink-500 hover:scale-110 duration-300">
+            <a href="https://twitter.com/azizchanou" target="_blank">
+              <Icon name="mdi:instagram" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </Default>
