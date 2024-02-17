@@ -4,6 +4,9 @@ import { Icon } from "astro-icon/components";
 
 <header class="flex justify-between w-full text-2xl my-4 md:py-6">
   <div class="flex justify-between">
+    <button id="navMenu">
+      <Icon name="mdi:menu" class="text-3xl block md:hidden z-50 relative" />
+    </button>
     <ul class="hidden space-x-4 md:flex">
       <li class="hover:text-slate-300 duration-300"><a href="/">Home</a></li>
       <li class="hover:text-slate-300 duration-300">
@@ -19,9 +22,6 @@ import { Icon } from "astro-icon/components";
         <a href="/contacts">Contacts</a>
       </li>
     </ul>
-    <button id="navMenu">
-      <Icon name="mdi:menu" class="text-3xl block md:hidden" />
-    </button>
   </div>
   <div class="flex justify-between items-center space-x-8">
     <ul class="flex space-x-4">
@@ -98,7 +98,7 @@ import { Icon } from "astro-icon/components";
 
     if (response.status !== 200) {
       throw new Error(
-        `Téléchargement du fichier Aziz_CHANOU_CV.pdf a échoué. Code d'erreur : ${response.status}`,
+        `Téléchargement du fichier Aziz_CHANOU_CV.pdf a échoué. Code d'erreur : ${response.status}`
       );
     }
 

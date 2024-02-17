@@ -1,13 +1,12 @@
 ---
 import { Icon } from "astro-icon/components";
 import Default from "../layouts/Default.astro";
+
 ---
 
 <script>
-  import useMail from "../utils/useMail";
-
   const contactForm = document.getElementById(
-    "contact-form",
+    "contact-form"
   ) as HTMLFormElement;
 
   contactForm.addEventListener("submit", (event: SubmitEvent) => {
@@ -15,10 +14,10 @@ import Default from "../layouts/Default.astro";
     let mail;
     if (event.target) {
       mail = {
-        name: event.target.name.value,
-        email: event.target.email.value,
-        phone: event.target.phone.value,
-        message: event.target.message.value,
+        // name: event.target.name.value,
+        // email: event.target.email.value,
+        // phone: event.target.phone.value,
+        // message: event.target.message.value,
       };
     }
     console.log(mail);
@@ -31,7 +30,6 @@ import Default from "../layouts/Default.astro";
       CONTACT
     </h3>
     <div
-      id="contact-form"
       class="py-16 mx-auto flex w-full flex-col lg:flex-row font-montserrat-alternates"
     >
       <div class="lg:w-1/2">
@@ -81,7 +79,6 @@ import Default from "../layouts/Default.astro";
             class="w-full pb-1 text-sm border-gray-300 border-b outline-0 bg-transparent !text-white"
             placeholder="Nom & Prenoms"
             autocomplete="name"
-            required
           />
         </div>
 
@@ -94,7 +91,6 @@ import Default from "../layouts/Default.astro";
             class="w-full pb-1 text-sm border-gray-300 border-b outline-0 bg-transparent !text-white"
             placeholder="Email"
             autocomplete="email"
-            required
           />
         </div>
 
@@ -109,7 +105,6 @@ import Default from "../layouts/Default.astro";
             class="w-full pb-1 text-sm border-gray-300 border-b outline-0 bg-transparent !text-white"
             placeholder="Numero mobile Ex: +229 66 48 51 60"
             autocomplete="mobile"
-            required
           />
         </div>
 
@@ -121,8 +116,7 @@ import Default from "../layouts/Default.astro";
             class="w-full pb-1 text-sm border-gray-300 border-b outline-0 bg-transparent !text-white"
             cols="30"
             rows="10"
-            placeholder="Message"
-            required></textarea>
+            placeholder="Message"></textarea>
         </div>
 
         <div class="col-span-2">

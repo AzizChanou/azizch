@@ -1,5 +1,5 @@
 "use strict";
-// import nodemailer from "nodemailer";
+import nodemailer from "nodemailer";
 
 export default function useMail() {
     const transporter = nodemailer.createTransport({
@@ -12,8 +12,9 @@ export default function useMail() {
         // },
     });
 
-    async function sendMail({ from, to, subject, text, html }:
+    async function sendMail(mail:
         { from?: string, to?: string, subject?: string, text?: string, html?: string }) {
+        console.log(mail)
         const info = await transporter.sendMail({
             from: '"Fred Foo 👻" <foo@example.com>',
             to: "bar@example.com, baz@example.com",

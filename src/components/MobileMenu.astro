@@ -4,19 +4,29 @@ import { Icon } from "astro-icon/components";
 
 <div
   id="menu"
-  class="transition-all ease-in-out duration-500 flex overflow-auto fixed top-0 text-white z-10 left-0 h-full bg-black/70 blur-3xl flex-col justify-between md:hidden w-0"
+  class="transition-all ease-in-out duration-500 flex overflow-hidden fixed top-0 left-0 h-full text-white z-40 bg-black flex-col justify-between md:hidden w-0"
 >
   <div class="p-8 py-20">
-    <ul class="flex flex-col space-y-6 font-medium divide-y-2 divide-y-reverse">
+    <ul
+      id="menuList"
+      class="flex flex-col space-y-6 font-medium divide-y-2 divide-y-reverse"
+    >
       <li></li>
-
-      <li>Home</li>
-
-      <li>Home</li>
-
-      <li>Home</li>
-
-      <li>Home</li>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/stack">Stack</a>
+      </li>
+      <li>
+        <a href="/projects">Projects</a>
+      </li>
+      <li>
+        <a href="/blog">Blog</a>
+      </li>
+      <li>
+        <a href="/contacts">Contacts</a>
+      </li>
     </ul>
   </div>
   <span class="block justify-center p-10">
@@ -50,17 +60,33 @@ import { Icon } from "astro-icon/components";
 </div>
 
 <script>
+  const menuList = document.querySelector("#menuList") as HTMLElement;
   const navMenu = document.querySelector("#navMenu") as HTMLElement;
   const menu = document.querySelector("#menu") as HTMLElement;
-  navMenu.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    menu.classList.toggle("w-full");
-    menu.classList.toggle("w-0");
-  });
 
-  const men = () => {
+  const toggleMenu = () => {
     navMenu.classList.toggle("active");
     menu.classList.toggle("w-full");
     menu.classList.toggle("w-0");
   };
+
+  navMenu.addEventListener("click", () => {
+    toggleMenu();
+  });
+
+  menuList.children[1].addEventListener("click", () => {
+    toggleMenu();
+  });
+  menuList.children[2].addEventListener("click", () => {
+    toggleMenu();
+  });
+  menuList.children[3].addEventListener("click", () => {
+    toggleMenu();
+  });
+  menuList.children[4].addEventListener("click", () => {
+    toggleMenu();
+  });
+  menuList.children[5].addEventListener("click", () => {
+    toggleMenu();
+  });
 </script>
