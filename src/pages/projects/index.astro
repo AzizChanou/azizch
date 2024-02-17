@@ -4,11 +4,11 @@ import Default from "../../layouts/Default.astro";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("projects")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 ---
 
-<Default>
+<Default title="Blog">
   <div class="h-full w-full flex flex-col justify-center items-center">
     <h3 class="text-5xl font-montserrat-alternates font-semibold uppercase">
       Projects
@@ -17,7 +17,7 @@ const posts = (await getCollection("projects")).sort(
     <div class="h-full w-full mt-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {
         posts.map((post) => (
-          <PostCard post={{ ...post.data, slug: post.slug }} />
+          <PostCard page="projects" post={{ ...post.data, slug: post.slug }} />
         ))
       }
     </div>

@@ -1,39 +1,17 @@
 ---
-const { post } = Astro.props;
+const { post, page } = Astro.props;
 ---
 
-<script>
-  import Atropos from "atropos";
-
-  class PostCard extends HTMLElement {
-    constructor() {
-      super();
-      const post = this.dataset.post;
-      Atropos({
-        el: `.post-${post}`,
-        activeOffset: 90,
-        shadowScale: 0.75,
-      });
-    }
-  }
-  customElements.define("post-card", PostCard);
-</script>
-
-<a href={`/blog/${post.slug}/`}>
-  <post-card
-    class={`p-6 overflow-hidden rounded-lg min-h-64 h-64 max-h-64 w-full shadow shadow-white hover:bg-slate-100 hover:text-slate-950 hover:scale-105 duration-300 atropos post-${post.id}`}
-    data-post={post.id}
+<a href={`/${page}/${post.slug}/`}>
+  <div
+    class={`p-6 overflow-hidden rounded-lg min-h-64 h-64 max-h-64 w-full shadow shadow-white hover:bg-slate-100 hover:text-slate-950 hover:scale-105 duration-300`}
   >
-    <div class="atropos-scale">
-      <div class="atropos-rotate">
-        <h2 class="text-xl font-bold">{post.title}</h2>
-        <p class="mt-4">
-          {post.description}
-        </p>
-        <div class="flex items-center mt-8 space-x-4">
-          {post.pubDate}
-        </div>
-      </div>
+    <h2 class="text-xl font-bold">{post.title}</h2>
+    <p class="mt-4">
+      {post.description}
+    </p>
+    <div class="flex items-center mt-8 space-x-4">
+      {post.pubDate}
     </div>
-  </post-card>
+  </div>
 </a>

@@ -8,7 +8,7 @@ const posts = (await getCollection("blog")).sort(
 );
 ---
 
-<Default>
+<Default title="Blog">
   <div class="h-full w-full flex flex-col justify-center items-center">
     <h3 class="text-5xl font-montserrat-alternates font-semibold uppercase">
       Articles
@@ -17,7 +17,7 @@ const posts = (await getCollection("blog")).sort(
     <div class="h-full w-full mt-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {
         posts.map((post) => (
-          <PostCard post={{ ...post.data, slug: post.slug }} />
+          <PostCard page="blog" post={{ ...post.data, slug: post.slug }} />
         ))
       }
     </div>

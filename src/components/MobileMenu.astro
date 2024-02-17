@@ -4,14 +4,10 @@ import { Icon } from "astro-icon/components";
 
 <div
   id="menu"
-  class="transition-all ease-in-out duration-500 flex overflow-hidden fixed top-0 left-0 h-full text-white z-40 bg-black flex-col justify-between md:hidden w-0"
+  class="transition-all ease-in-out duration-500 flex overflow-hidden fixed top-0 left-0 h-full text-white z-40 bg-black flex-col justify-between md:hidden w-0 text-3xl"
 >
-  <div class="p-8 py-20">
-    <ul
-      id="menuList"
-      class="flex flex-col space-y-6 font-medium divide-y-2 divide-y-reverse"
-    >
-      <li></li>
+  <div class="h-full flex justify-center items-center">
+    <ul id="menuList" class="flex flex-col space-y-6 font-medium text-center">
       <li>
         <a href="/">Home</a>
       </li>
@@ -30,32 +26,28 @@ import { Icon } from "astro-icon/components";
     </ul>
   </div>
   <span class="block justify-center p-10">
-    <div class="flex flex-wrap justify-center gap-6 mt-6">
-      <a href="https://web.facebook.com/studiomcandco" target="blank">
-        <Icon
-          name="mdi:facebook"
-          class="hover:scale-105 hover:text-blue-400 text-xl duration-500"
-        />
-      </a>
-      <a href="https://www.instagram.com/studiomcandco" target="blank">
-        <Icon
-          name="mdi:instagram"
-          class="hover:scale-105 hover:text-red-400 text-xl duration-500"
-        />
-      </a>
-      <a href="https://www.linkedin.com/company/studiomcandco" target="blank">
-        <Icon
-          name="mdi:linkedin"
-          class="hover:scale-105 hover:text-blue-500 text-xl duration-500"
-        />
-      </a>
-      <a href="https://twitter.com/studiomcandco" target="blank">
-        <Icon
-          name="mdi:twitter"
-          class="hover:scale-105 hover:text-blue-300 text-xl duration-500"
-        />
-      </a>
-    </div>
+    <ul class="flex flex-wrap justify-center gap-6">
+      <li class="hover:text-slate-500 hover:scale-110 duration-300">
+        <a href="https://github.com/AzizChanou" target="_blank">
+          <Icon name="mdi:github" />
+        </a>
+      </li>
+      <li class="hover:text-blue-500 hover:scale-110 duration-300">
+        <a href="https://www.linkedin.com/in/aziz-chanou/" target="_blank">
+          <Icon name="mdi:linkedin" />
+        </a>
+      </li>
+      <li class="hover:text-blue-500 hover:scale-110 duration-300">
+        <a href="https://twitter.com/azizchanou" target="_blank">
+          <Icon name="mdi:twitter" />
+        </a>
+      </li>
+      <li class="hover:text-pink-500 hover:scale-110 duration-300">
+        <a href="https://instagram.com/azizchanoux" target="_blank">
+          <Icon name="mdi:instagram" />
+        </a>
+      </li>
+    </ul>
   </span>
 </div>
 
@@ -74,6 +66,9 @@ import { Icon } from "astro-icon/components";
     toggleMenu();
   });
 
+  menuList.children[0].addEventListener("click", () => {
+    toggleMenu();
+  });
   menuList.children[1].addEventListener("click", () => {
     toggleMenu();
   });
@@ -84,9 +79,6 @@ import { Icon } from "astro-icon/components";
     toggleMenu();
   });
   menuList.children[4].addEventListener("click", () => {
-    toggleMenu();
-  });
-  menuList.children[5].addEventListener("click", () => {
     toggleMenu();
   });
 </script>
