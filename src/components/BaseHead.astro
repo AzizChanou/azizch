@@ -29,7 +29,7 @@ const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
 
   <script src="../assets/ts"></script>
 
-  <title>{full_title}</title>
+  <title data-title={full_title}>{full_title}</title>
   <meta name="title" content={full_title} />
   <meta name="description" content={description} />
 
@@ -58,4 +58,14 @@ const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
       meta: [{}],
     }}
   />
+
+  <script>
+    window.addEventListener("blur", () => {
+      document.title = "Come look at me";
+    });
+
+    window.addEventListener("focus", () => {
+      document.title = "KYOGRE";
+    });
+  </script>
 </head>

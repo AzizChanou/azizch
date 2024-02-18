@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <header class="flex justify-between w-full text-2xl my-4 md:py-6">
-  <div class="flex justify-between">
+  <div class="flex justify-between items-center">
     <button id="navMenu">
       <Icon name="mdi:menu" class="text-3xl block md:hidden z-50 relative" />
     </button>
@@ -26,22 +26,42 @@ import { Icon } from "astro-icon/components";
   <div class="flex justify-between items-center space-x-8">
     <ul class="flex space-x-4">
       <li class="hover:text-slate-500 hover:scale-110 duration-300">
-        <a href="https://github.com/AzizChanou" target="_blank">
+        <a
+          rel="noopener"
+          target="_blank"
+          aria-label="Github"
+          href="https://github.com/AzizChanou"
+        >
           <Icon name="mdi:github" />
         </a>
       </li>
       <li class="hover:text-blue-500 hover:scale-110 duration-300">
-        <a href="https://www.linkedin.com/in/aziz-chanou/" target="_blank">
+        <a
+          rel="noopener"
+          target="_blank"
+          aria-label="LinkedIn"
+          href="https://www.linkedin.com/in/aziz-chanou/"
+        >
           <Icon name="mdi:linkedin" />
         </a>
       </li>
       <li class="hover:text-blue-500 hover:scale-110 duration-300">
-        <a href="https://twitter.com/azizchanou" target="_blank">
+        <a
+          rel="noopener"
+          target="_blank"
+          aria-label="LinkedIn"
+          href="https://twitter.com/azizchanou"
+        >
           <Icon name="mdi:twitter" />
         </a>
       </li>
       <li class="hover:text-pink-500 hover:scale-110 duration-300">
-        <a href="https://instagram.com/azizchanou" target="_blank">
+        <a
+          rel="noopener"
+          target="_blank"
+          aria-label="Instagram"
+          href="https://instagram.com/azizchanoux"
+        >
           <Icon name="mdi:instagram" />
         </a>
       </li>
