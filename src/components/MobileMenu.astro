@@ -75,11 +75,14 @@ import { Icon } from "astro-icon/components";
   const menuList = document.querySelector("#menuList") as HTMLElement;
   const navMenu = document.querySelector("#navMenu") as HTMLElement;
   const menu = document.querySelector("#menu") as HTMLElement;
+  const icon = document.querySelector("#icon-menu") as HTMLElement;
 
   const toggleMenu = () => {
     navMenu.classList.toggle("active");
     menu.classList.toggle("w-full");
     menu.classList.toggle("w-0");
+    icon.classList.toggle("open");
+    document.body.classList.toggle("overflow-hidden");
   };
 
   navMenu.addEventListener("click", () => {

@@ -1,11 +1,12 @@
 ---
 import { Icon } from "astro-icon/components";
+import HMenu from './HMenu.astro'
 ---
 
 <header class="flex justify-between w-full text-2xl my-4 md:py-6">
   <div class="flex justify-between items-center">
     <button id="navMenu">
-      <Icon name="mdi:menu" class="text-3xl block md:hidden z-50 relative" />
+      <HMenu class="size-6"/>
     </button>
     <ul class="hidden space-x-4 md:flex">
       <li class="hover:text-slate-300 duration-300"><a href="/">Home</a></li>
