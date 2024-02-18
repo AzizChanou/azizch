@@ -1,3 +1,11 @@
+---
+id: 348
+title: 'Readme'
+description: 'Lorem ipsum dolor sit amet'
+pubDate: 'Jul 08 2022'
+heroImage: 'https://picsum.photos/12'
+---
+
 # Projet ERP
 
 ## Description
