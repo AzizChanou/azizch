@@ -10,7 +10,9 @@ const { href } = Astro.url;
 ---
 
 <Default title={title} description={description}>
-  <slot />
+  <div class="text-xl">
+    <slot />
+  </div>
   <div class="py-4 flex justify-center">
     <div class="flex flex-col items-center space-y-4">
       <h4 class="text-2xl">Partager sur les réseaux sociaux</h4>

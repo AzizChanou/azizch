@@ -14,7 +14,6 @@ export default function useMail() {
 
     async function sendMail(mail:
         { from?: string, to?: string, subject?: string, text?: string, html?: string }) {
-        console.log(mail)
         const info = await transporter.sendMail({
             from: '"Fred Foo 👻" <foo@example.com>',
             to: "bar@example.com, baz@example.com",
@@ -22,7 +21,6 @@ export default function useMail() {
             text: "Hello world?",
             html: "<b>Hello world?</b>",
         });
-        console.log("Message sent: %s", info.messageId);
     }
 
     return {
