@@ -8,5 +8,12 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://azizch.vercel.app',
-  integrations: [mdx(), sitemap(), tailwind(), icon()]
+  integrations: [mdx(), sitemap(), tailwind(), icon()],
+  markdown: {
+    shikiConfig: {
+      theme: 'dracula',
+      wrap: true,
+      transformers: [],
+    },
+  },
 });

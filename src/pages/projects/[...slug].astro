@@ -16,7 +16,7 @@ const { Content } = await post.render();
 ---
 
 <Default {...post.data}>
-  <div class="space-y-4">
+  <div class="space-y-4 font-atkinson">
     <h1
       class="text-4xl md:text-6xl text-center font-montserrat-alternates font-semibold"
     >
@@ -27,11 +27,11 @@ const { Content } = await post.render();
       alt={post.data.title}
       width="100%"
       height="100%"
-      class="w-full h-64 object-cover rounded"
+      class="w-full h-full max-h-96 object-cover rounded"
       loading="lazy"
     />
-  <div class="text-xl">
-    <Content />
-  </div>
+    <div class="text-xl">
+      <Content />
+    </div>
   </div>
 </Default>

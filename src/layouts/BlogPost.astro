@@ -9,14 +9,27 @@ const { title, description } = Astro.props;
 const { href } = Astro.url;
 ---
 
+<script>
+  const copy = document.getElementById("copy");
+
+  copy?.addEventListener("click", function () {
+    copy.dataset.link && navigator.clipboard.writeText(copy.dataset.link);
+  });
+</script>
+
 <Default title={title} description={description}>
   <div class="text-xl">
     <slot />
   </div>
   <div class="py-4 flex justify-center">
     <div class="flex flex-col items-center space-y-4">
-      <h4 class="text-2xl">Partager sur les réseaux sociaux</h4>
+      <h4 class="text-2xl">Partager l'article</h4>
       <ul class="flex space-x-4 text-2xl">
+        <li class="hover:text-slate-500 hover:scale-110 duration-300">
+          <button id="copy" aria-label="Copier le lien" data-link={href}>
+            <Icon name="mdi:content-copy" />
+          </button>
+        </li>
         <li class="hover:text-blue-500 hover:scale-110 duration-300">
           <a
             rel="noopener"
