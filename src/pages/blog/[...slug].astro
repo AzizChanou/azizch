@@ -30,6 +30,10 @@ const { Content } = await post.render();
       class="w-full h-full max-h-96 object-cover rounded"
       loading="lazy"
     />
-    <Content />
+    <div class="w-full flex justify-center text-xl text-justify">
+      <div class="max-w-5xl bg-zinc-800 p-2 rounded">
+        <Content />
+      </div>
+    </div>
   </div>
 </BlogPost>
