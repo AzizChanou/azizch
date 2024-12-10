@@ -16,7 +16,7 @@ const { Content } = await post.render();
 ---
 
 <Default {...post.data}>
-  <div class="space-y-4 font-atkinson">
+  <div class="space-y-4 font-atkinson max-w-screen-lg mx-auto">
     <h1
       class="text-4xl md:text-6xl text-center font-montserrat-alternates font-semibold"
     >
@@ -30,8 +30,8 @@ const { Content } = await post.render();
       class="w-full h-full max-h-96 object-cover rounded"
       loading="lazy"
     />
-    <div class="w-full flex justify-center text-xl text-justify">
-      <div class="max-w-5xl bg-zinc-800 p-2 rounded">
+    <div class="w-full flex justify-center text-lg text-justify">
+      <div class="bg-zinc-800 p-2 rounded">
         <Content />
       </div>
     </div>

@@ -1,4 +1,6 @@
 ---
+import Image from "astro/components/Image.astro";
+
 const { post, page } = Astro.props;
 ---
 
@@ -6,10 +8,13 @@ const { post, page } = Astro.props;
   <div
     class="group p-4 overflow-hidden rounded-lg shadow w-full shadow-white hover:bg-slate-200 hover:text-slate-950 hover:scale-105 duration-300"
   >
-    <img
+    <Image
       src={post.heroImage}
       alt={post.title}
+      height={176}
+      width={256}
       class="h-44 w-full rounded object-cover group-hover:shadow-xl duration-300"
+      inferSize
     />
     <div class="flex flex-col justify-between gap-2 mt-4 h-full">
       {
@@ -25,7 +30,7 @@ const { post, page } = Astro.props;
       }
       <h2 class="text-xl font-bold">{post.title}</h2>
       <p class="">
-        {post.description.substring(0, 100) + "..."}
+        {post.description.substring(0, 60) + "..."}
       </p>
       {
         post.author && (

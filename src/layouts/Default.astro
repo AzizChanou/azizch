@@ -3,22 +3,22 @@ import ScrollToTop from "../components/ScrollToTop.astro";
 import BaseHead from "../components/BaseHead.astro";
 import HeadBar from "../components/HeadBar.astro";
 import FootBar from "../components/FootBar.astro";
-import Dot from "../components/Dot.astro";
+import DotPointer from "../components/DotPointer.astro";
 import MobileMenu from "../components/MobileMenu.astro";
 
 const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html data-theme="dark" lang="fr">
+<html data-theme="dark" lang="fr" class="lenis lenis-smooth">
   <head>
     <BaseHead title={title} description={description} />
   </head>
   <body
-    class="max-h-dvh h-full mx-auto w-full bg-slate-950 text-white overflow-x-hidden relative overscroll-y-auto font-jost duration-1000"
+    class="max-h-dvh h-full w-full bg-slate-950 text-white overflow-x-hidden relative overscroll-y-auto font-jost duration-1000"
   >
-    <Dot />
-    <main class="min-h-dvh w-full max-w-screen-2xl mx-auto">
+    <DotPointer />
+    <main class="min-h-dvh w-full max-w-screen-xl mx-auto">
       <div
         class="mx-auto flex flex-col justify-between px-6 min-h-dvh h-full w-full"
       >

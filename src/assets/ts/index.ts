@@ -1,5 +1,2 @@
-import Swup from "swup";
-
-const swup = new Swup();
-
-export default swup
+export * from "./swup";
+export * from "./lenis-smooth-scroll";
