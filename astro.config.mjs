@@ -7,7 +7,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://azizch.vercel.app',
+  site: 'https://kyogre.dev',
   integrations: [mdx(), sitemap(), tailwind(), icon()],
   markdown: {
     shikiConfig: {
