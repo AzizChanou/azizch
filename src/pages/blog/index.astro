@@ -8,7 +8,10 @@ const posts = (await getCollection("blog")).sort(
 );
 ---
 
-<Default title="Blog">
+<Default
+  title="Blog"
+  description="Articles de fond sur le développement web, les architectures modernes, les bonnes pratiques DevOps, les frameworks JS et l'optimisation des performances."
+>
   <div class="h-full w-full flex flex-col justify-center items-center">
     <h3
       class="text-5xl font-montserrat-alternates text-center font-semibold uppercase"
