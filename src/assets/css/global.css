@@ -18,3 +18,22 @@
     background-color: transparent;
 }
 
+@theme {
+    --font-atkinson: 'Atkinson', sans-serif;
+    --font-jost: 'Jost', sans-serif;
+    --font-montserrat-alternates: 'Montserrat-Alternates', sans-serif;
+
+    --animation-wiggle: wiggle 0.2s ease-in-out;
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
