@@ -23,4 +23,4 @@ I'm a software engineer dedicated to crafting exceptional digital experiences. M
 -->
 ## Contact Me
 
-📧 Email: azizchanou@gmail.com  
+📧 Email: aziz@kyogre.dev  
