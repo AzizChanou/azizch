@@ -13,7 +13,7 @@ const { title, description } = Astro.props;
 <html data-theme="dark" lang="fr" class="lenis lenis-smooth">
   <BaseHead title={title} description={description} />
   <body
-    class="max-h-dvh h-full w-full bg-slate-950 text-white overflow-x-hidden relative overscroll-y-auto font-jost duration-1000"
+    class="max-h-dvh h-full w-full bg-slate-950 text-white overflow-x-hidden relative overscroll-y-auto font-jost duration-1000 selection:bg-slate-500"
   >
     <DotPointer />
     <main class="min-h-dvh w-full max-w-(--breakpoint-xl) mx-auto">
@@ -33,7 +33,7 @@ const { title, description } = Astro.props;
     </main>
     <video
       src="/videos/background.mp4"
-      class="thumbnail fixed h-full w-full top-0 left-0 -z-50 blur-md object-cover overflow-hidden"
+      class="thumbnail fixed h-full w-full top-0 left-0 -z-50 blur-lg object-cover overflow-hidden"
       preload="auto"
       loop
       muted
