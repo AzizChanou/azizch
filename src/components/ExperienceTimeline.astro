@@ -1,7 +1,7 @@
 ---
 const experiences = [
   {
-    company: "FOXTECH",
+    company: "Foxtech",
     role: "Développeur Web",
     description:
       "Maintenance de la Suite Dispatch (web & mobile) pour optimiser la productivité et la gestion des ressources sur les chantiers de construction.",
@@ -9,7 +9,7 @@ const experiences = [
     endDate: "Aujourd'hui",
   },
   {
-    company: "Plania",
+    company: "Plannia",
     role: "Développeur Web",
     description:
       "Développement d'une application de gestion de projet automatisée par IA pour le calcul du chemin critique, la marge et le budget. Génération de rapports visuels.",
@@ -17,7 +17,7 @@ const experiences = [
     endDate: "Février 2025",
   },
   {
-    company: "FASEYA",
+    company: "Faseya",
     role: "Développeur Web",
     description:
       "Conception et développement d'un CRM novateur, structuration de l'architecture et développement de modules clés (gestion RH, projets, tableau de bord, stockage).",
@@ -33,7 +33,7 @@ const experiences = [
     endDate: "Mai 2024",
   },
   {
-    company: "FINDTECH",
+    company: "Findtech",
     role: "Ingénieur Logiciel",
     description:
       "Conception d'un tableau de bord pour une app mobile de transport, et développement d'une app web (PGIC) pour la gestion informatique des communes.",
@@ -81,11 +81,11 @@ const experiences = [
             />
           )}
           <div class="p-4 rounded-lg border border-slate-700 shadow-xl backdrop-blur-md bg-white/10">
-            <div class="flex items-center justify-between mb-2">
+            <div class="block md:flex items-center justify-between mb-2">
               <h3 class="text-lg font-semibold text-white">
                 {exp.role} chez <span class="text-cyan-500">{exp.company}</span>
               </h3>
-              <time class="block text-sm font-normal leading-none text-slate-300">
+              <time class="block text-sm font-normal leading-none text-slate-300 mt-2 md:mt-0">
                 {exp.startDate} - {exp.endDate}
               </time>
             </div>
