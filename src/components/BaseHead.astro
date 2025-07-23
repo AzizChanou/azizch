@@ -1,6 +1,11 @@
 ---
 import "../assets/css/global.css";
-import { SITE_DESCRIPTION, SITE_TITLE, SITE_ICON, SITE_URL } from "../consts";
+import {
+  SITE_DESCRIPTION,
+  SITE_TITLE,
+  SITE_ICON,
+  SITE_IMAGE, SITE_URL,
+} from "../consts";
 import { SEO } from "astro-seo";
 
 export interface Props {
@@ -14,7 +19,7 @@ const canonicalURL = SITE_URL;
 const {
   title,
   description = SITE_DESCRIPTION,
-  image = SITE_ICON,
+  image = SITE_IMAGE,
 } = Astro.props;
 const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
 ---
