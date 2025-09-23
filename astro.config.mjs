@@ -1,3 +1,5 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -5,6 +7,8 @@ import icon from "astro-icon";
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import cloudflare from '@astrojs/cloudflare';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,6 +25,12 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+        ...(import.meta.env.PROD ? { 'react-dom/server': 'react-dom/server.edge' } : {}),
+      },
+    },
   },
 
   adapter: cloudflare({
