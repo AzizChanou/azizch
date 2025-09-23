@@ -1,5 +1,5 @@
 {
-  "name": "azizch",
+  "name": "kyogre",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,10 +7,12 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "preview:wrangler": "wrangler dev ./dist/_worker.js/index.js",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/cloudflare": "^12.6.9",
     "@astrojs/mdx": "^4.3.6",
     "@astrojs/react": "^4.3.1",
     "@astrojs/rss": "^4.0.12",
@@ -41,7 +43,8 @@
       "@tailwindcss/oxide",
       "esbuild",
       "sharp",
-      "swup"
+      "swup",
+      "workerd"
     ]
   }
 }
