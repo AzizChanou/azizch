@@ -48,6 +48,14 @@ const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
         image: image,
         url: canonicalURL,
       },
+      image: {
+        alt: full_title,
+        height: 1200,
+        width: 1200,
+        secureUrl: image,
+        type: "image/jpeg",
+        url: image,
+      },
     }}
     twitter={{
       card: "summary_large_image",
@@ -66,7 +74,7 @@ const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
 
   <script>
     window.addEventListener("blur", () => {
-      document.title = "Come look at me";
+      document.title = "Come back";
     });
 
     window.addEventListener("focus", () => {
