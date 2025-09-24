@@ -16,7 +16,7 @@ const { Content } = await post.render();
 ---
 
 <Default {...post.data}>
-  <div class="space-y-4 font-atkinson max-w-(--breakpoint-lg) mx-auto">
+  <article class="space-y-4 max-w-(--breakpoint-lg) mx-auto">
     <h1
       class="text-4xl md:text-6xl text-center font-montserrat-alternates font-semibold"
     >
@@ -31,9 +31,9 @@ const { Content } = await post.render();
       loading="lazy"
     />
     <div class="w-full flex justify-center text-justify">
-      <div class="bg-zinc-800 p-2 rounded w-full">
+      <div class="p-2 rounded w-full prose">
         <Content />
       </div>
     </div>
-  </div>
+  </article>
 </Default>

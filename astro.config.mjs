@@ -17,8 +17,7 @@ export default defineConfig({
 
   markdown: {
     shikiConfig: {
-      theme: 'dracula',
-      wrap: true,
+      theme: 'dark-plus',
       transformers: [],
     },
   },

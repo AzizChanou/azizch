@@ -5,11 +5,9 @@ const blog = defineCollection({
 	schema: z.object({
 		id: z.number(),
 		title: z.string(),
-		author: z.string(),
 		tags: z.array(z.string()).optional(),
 		description: z.string(),
 		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
 	}),
 });
@@ -21,7 +19,6 @@ const projects = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
 	}),
 });
