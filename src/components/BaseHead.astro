@@ -4,9 +4,11 @@ import {
   SITE_DESCRIPTION,
   SITE_TITLE,
   SITE_ICON,
-  SITE_IMAGE, SITE_URL,
+  SITE_IMAGE,
+  SITE_URL,
 } from "../consts";
 import { SEO } from "astro-seo";
+import GoogleAnalytics from "./GoogleAnalytics.astro";
 
 export interface Props {
   title: string;
@@ -71,6 +73,8 @@ const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
       meta: [{}],
     }}
   />
+
+  <GoogleAnalytics id="G-V648TRT3XT" />
 
   <script>
     window.addEventListener("blur", () => {

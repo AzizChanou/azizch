@@ -1,0 +1,22 @@
+---
+const props = Astro.props;
+if (typeof props.id !== "string") {
+  props.id = "G-V648TRT3XT";
+}
+const url = `https://www.googletagmanager.com/gtag/js?id=${props.id}`;
+---
+
+<script async src={url} is:inline>
+  // _
+</script>
+
+<script is:inline define:vars={{ id: props.id }}>
+  (() => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", id);
+  })();
+</script>
