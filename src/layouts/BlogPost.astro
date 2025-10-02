@@ -10,7 +10,7 @@ type Props = CollectionEntry<"blog">["data"] & {
   remarkPluginFrontmatter: Record<string, string>;
 };
 
-const { title, description, headings, remarkPluginFrontmatter } = Astro.props;
+const { title, description, headings, heroImage, remarkPluginFrontmatter } = Astro.props;
 const { href } = Astro.url;
 ---
 
@@ -22,7 +22,7 @@ const { href } = Astro.url;
   });
 </script>
 
-<Default title={title} description={description}>
+<Default title={title} description={description} image={heroImage}>
   <div>
     <article>
       <div

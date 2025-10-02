@@ -32,7 +32,7 @@ const { Content, remarkPluginFrontmatter } = await post.render();
   headings={headings}
   remarkPluginFrontmatter={remarkPluginFrontmatter}
 >
-  <article class="space-y-4 max-w-(--breakpoint-lg) mx-auto">
+  <article class="space-y-4 max-w-(--breakpoint-lg)">
     <h1
       class="text-4xl md:text-6xl text-center font-montserrat-alternates font-semibold"
     >
@@ -47,8 +47,7 @@ const { Content, remarkPluginFrontmatter } = await post.render();
       loading="lazy"
     />
 
-    <div class="text-lg flex items-center gap-4 flex-wrap py-8">
-      <!-- Publish date -->
+    <div class="text-lg flex items-center gap-4 flex-wrap">
       <span>
         <Icon
           name="mdi:calendar-month-outline"
@@ -57,7 +56,6 @@ const { Content, remarkPluginFrontmatter } = await post.render();
         <FormattedDate date={post.data.pubDate} />
       </span>
 
-      <!-- Read time -->
       <span>
         <Icon
           name="mdi:clock-time-four-outline"

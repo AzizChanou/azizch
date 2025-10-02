@@ -1,13 +1,13 @@
 ---
 import { Image } from "astro:assets";
-
+import FormattedDate from "./FormattedDate.astro";
 
 const { post, page } = Astro.props;
 ---
 
 <a href={`/${page}/${post.slug}/`}>
   <div
-    class="group p-4 h-96 overflow-hidden rounded-lg shadow w-full shadow-white hover:scale-105 duration-300"
+    class="group p-4 overflow-hidden rounded-lg shadow w-full shadow-white hover:scale-105 duration-300"
   >
     <Image
       src={post.heroImage}
@@ -17,7 +17,7 @@ const { post, page } = Astro.props;
       class="h-44 w-full rounded object-cover group-hover:shadow-xl duration-300"
       inferSize
     />
-    <div class="flex flex-col justify-between gap-2 mt-4 h-fit">
+    <div class="flex flex-col justify-between gap-2 mt-4">
       {
         post.tags && (
           <div class="flex flex-wrap overflow-hidden gap-2 max-w-sm">
@@ -30,26 +30,12 @@ const { post, page } = Astro.props;
         )
       }
       <h2 class="text-xl font-bold text-wrap truncate">{post.title}</h2>
-      <!-- <p class="">
-        {post.description.substring(0, 60) + "..."}
-      </p> -->
-      {
-        post.author && (
-          <div class="flex items-center space-x-4">
-            <img
-              src="/img/_ultima.jpg"
-              alt={post.author}
-              class="size-10 rounded-full dark:bg-gray-500"
-            />
-            <div>
-              <h3 class="font-medium">{post.author}</h3>
-              <time datetime="2021-02-18" class="text-sm dark:text-gray-400">
-                {post.pubDate.toDateString()}
-              </time>
-            </div>
-          </div>
-        )
-      }
+      {post.description.substring(0, 60) + "..."}
+      <div>
+        <time datetime="2021-02-18" class="text-sm dark:text-gray-400">
+          <FormattedDate date={post.pubDate} />
+        </time>
+      </div>
     </div>
   </div>
 </a>

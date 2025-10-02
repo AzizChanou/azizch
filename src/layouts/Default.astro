@@ -6,16 +6,17 @@ import FootBar from "../components/FootBar.astro";
 import DotPointer from "../components/DotPointer.astro";
 import MobileMenu from "../components/MobileMenu.astro";
 
-const { title, description } = Astro.props;
+const { title, description, image } = Astro.props;
 ---
 
 <!doctype html>
 <html data-theme="dark" lang="fr" class="lenis lenis-smooth">
-  <BaseHead title={title} description={description} /><body
-    class="h-full w-full bg-slate-950 text-white font-jost relative"
-  >
+  <BaseHead title={title} description={description} image={image} />
+  <body class="h-full w-full bg-slate-950 text-white font-jost relative">
     <DotPointer />
-    <main class="min-h-dvh h-full flex flex-col max-w-(--breakpoint-xl) mx-auto">
+    <main
+      class="min-h-dvh h-full flex flex-col max-w-(--breakpoint-xl) mx-auto"
+    >
       <HeadBar />
       <MobileMenu />
       <div class="flex flex-col px-6 mb-auto">
