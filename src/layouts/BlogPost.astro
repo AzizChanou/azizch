@@ -1,12 +1,16 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Default from "./Default.astro";
+import TableOfContents from "../components/TableOfContents.astro";
 import { Icon } from "astro-icon/components";
-import '@/assets/css/blog.css';
+import type { MarkdownHeading } from "astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & {
+  headings: MarkdownHeading[];
+  remarkPluginFrontmatter: Record<string, string>;
+};
 
-const { title, description } = Astro.props;
+const { title, description, headings, remarkPluginFrontmatter } = Astro.props;
 const { href } = Astro.url;
 ---
 
@@ -20,7 +24,25 @@ const { href } = Astro.url;
 
 <Default title={title} description={description}>
   <div>
-    <slot />
+    <article>
+      <div
+        class="flex flex-col lg:flex-row-reverse justify-between gap-8 relative"
+      >
+        <div class="md:w-1/4 relative">
+          <div class="sticky top-0 md:top-28 hidden lg:block">
+            <TableOfContents headings={headings} />
+          </div>
+        </div>
+        <div class="grow w-full md:max-w-[75ch]">
+          <div
+            class="prose prose-neutral prose-lg md:prose-xl dark:prose-invert prose-img:rounded-xl prose-figure:text-center prose-img:mx-auto font-normal"
+          >
+            <slot />
+          </div>
+          </div>
+        </div>
+      </div>
+    </article>
   </div>
   <div class="py-4 flex justify-center">
     <div class="flex flex-col items-center space-y-4">

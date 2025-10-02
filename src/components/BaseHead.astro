@@ -74,7 +74,11 @@ const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
     }}
   />
 
-  <GoogleAnalytics id="G-V648TRT3XT" />
+  {
+    process.env.NODE_ENV === "production" && (
+      <GoogleAnalytics id="G-V648TRT3XT" />
+    )
+  }
 
   <script>
     window.addEventListener("blur", () => {

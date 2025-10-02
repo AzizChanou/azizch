@@ -1,21 +1,37 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import type { MarkdownHeading } from "astro";
+import { Icon } from "astro-icon/components";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
-  return posts.map((post) => ({
+  const headings = await Promise.all(
+    posts.map(async (post) => {
+      const data = await post.render();
+      return data.headings;
+    })
+  );
+  return posts.map((post, index) => ({
     params: { slug: post.slug },
-    props: post,
+    props: { post, headings: headings[index], slug: post.slug },
   }));
 }
 
-type Props = CollectionEntry<"blog">;
-const post = Astro.props;
-const { Content } = await post.render();
+type Props = CollectionEntry<"blog"> & {
+  post: CollectionEntry<"blog">;
+  headings: MarkdownHeading[];
+};
+const { post, headings } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await post.render();
 ---
 
-<BlogPost {...post.data}>
+<BlogPost
+  {...post.data}
+  headings={headings}
+  remarkPluginFrontmatter={remarkPluginFrontmatter}
+>
   <article class="space-y-4 max-w-(--breakpoint-lg) mx-auto">
     <h1
       class="text-4xl md:text-6xl text-center font-montserrat-alternates font-semibold"
@@ -30,8 +46,28 @@ const { Content } = await post.render();
       class="w-full h-full max-h-96 object-cover rounded"
       loading="lazy"
     />
+
+    <div class="text-lg flex items-center gap-4 flex-wrap py-8">
+      <!-- Publish date -->
+      <span>
+        <Icon
+          name="mdi:calendar-month-outline"
+          class="inline-block text-primary dark:text-primary-dark"
+        />
+        <FormattedDate date={post.data.pubDate} />
+      </span>
+
+      <!-- Read time -->
+      <span>
+        <Icon
+          name="mdi:clock-time-four-outline"
+          class="inline-block text-primary dark:text-primary-dark"
+        />
+        {remarkPluginFrontmatter.minutesRead}
+      </span>
+    </div>
     <div class="w-full flex justify-center text-justify">
-      <div class="p-2 rounded w-full prose">
+      <div class="text-white">
         <Content />
       </div>
     </div>

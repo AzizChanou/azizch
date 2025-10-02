@@ -7,6 +7,10 @@ import icon from "astro-icon";
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import cloudflare from '@astrojs/cloudflare';
+import rehypeFigureTitle from 'rehype-figure-title'
+import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
+import { remarkReadingTime } from './src/plugins/remark-reading-time.mjs'
+import { remarkModifiedTime } from './src/plugins/remark-modified-time.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -20,6 +24,8 @@ export default defineConfig({
       theme: 'dark-plus',
       transformers: [],
     },
+    remarkPlugins: [remarkReadingTime, remarkModifiedTime],
+    rehypePlugins: [rehypeFigureTitle, rehypeAccessibleEmojis],
   },
 
   vite: {

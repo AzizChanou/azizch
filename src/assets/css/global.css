@@ -1,8 +1,7 @@
 @import url(font.css);
-@import url(font.css);
 @import url(swup.css);
-@import url(lenis.css);
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 ::-webkit-scrollbar {
     width: 6px;

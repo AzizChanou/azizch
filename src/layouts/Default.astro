@@ -11,38 +11,25 @@ const { title, description } = Astro.props;
 
 <!doctype html>
 <html data-theme="dark" lang="fr" class="lenis lenis-smooth">
-  <BaseHead title={title} description={description} />
-  <body
-    class="max-h-dvh h-full w-full bg-slate-950 text-white overflow-x-hidden relative overscroll-y-auto font-jost duration-1000 selection:bg-slate-500"
+  <BaseHead title={title} description={description} /><body
+    class="h-full w-full bg-slate-950 text-white font-jost relative"
   >
     <DotPointer />
-    <main class="min-h-dvh w-full max-w-(--breakpoint-xl) mx-auto">
-      <div
-        class="mx-auto flex flex-col justify-between px-6 min-h-dvh h-full w-full"
-      >
-        <div class="h-full w-full">
-          <MobileMenu />
-          <HeadBar />
-          <div id="swup" class="transition-fade w-full h-full">
-            <slot />
-          </div>
+    <main class="min-h-dvh h-full flex flex-col max-w-(--breakpoint-xl) mx-auto">
+      <HeadBar />
+      <MobileMenu />
+      <div class="flex flex-col px-6 mb-auto">
+        <div id="swup" class="w-full h-full transition-fade">
+          <slot />
         </div>
         <ScrollToTop />
-        <FootBar />
       </div>
+      <FootBar />
     </main>
-    <video
-      src="/videos/background.mp4"
-      class="fixed h-full w-full top-0 left-0 -z-50 blur-lg object-cover overflow-hidden opacity-70"
-      preload="auto"
-      loop
-      muted
-      autoplay
-    >
-      <!-- <img
+    <img
       src="/img/pxfuel.jpg"
-      class="thumbnail fixed h-full w-full top-0 left-0 -z-50 blur-lg object-cover overflow-hidden opacity-20"
-    /> -->
-    </video>
+      class="fixed top-0 -z-50 h-full w-full object-cover blur-lg opacity-20"
+      alt="Background"
+    />
   </body>
 </html>

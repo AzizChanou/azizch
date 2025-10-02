@@ -7,7 +7,7 @@ const { post, page } = Astro.props;
 
 <a href={`/${page}/${post.slug}/`}>
   <div
-    class="group p-4 overflow-hidden rounded-lg shadow w-full shadow-white hover:bg-slate-200 hover:text-slate-950 hover:scale-105 duration-300"
+    class="group p-4 h-96 overflow-hidden rounded-lg shadow w-full shadow-white hover:scale-105 duration-300"
   >
     <Image
       src={post.heroImage}
@@ -17,22 +17,22 @@ const { post, page } = Astro.props;
       class="h-44 w-full rounded object-cover group-hover:shadow-xl duration-300"
       inferSize
     />
-    <div class="flex flex-col justify-between gap-2 mt-4 h-full">
+    <div class="flex flex-col justify-between gap-2 mt-4 h-fit">
       {
         post.tags && (
           <div class="flex flex-wrap overflow-hidden gap-2 max-w-sm">
             {post.tags.map((tag: string) => (
-              <span class="text-sm font-bold bg-slate-200 text-slate-900 group-hover:bg-slate-900 group-hover:text-slate-200 rounded px-2 py-1 text-nowrap">
+              <span class="text-sm font-bold bg-slate-200 text-slate-900 rounded px-2 py-1 text-nowrap">
                 {tag}
               </span>
             ))}
           </div>
         )
       }
-      <h2 class="text-xl font-bold">{post.title}</h2>
-      <p class="">
+      <h2 class="text-xl font-bold text-wrap truncate">{post.title}</h2>
+      <!-- <p class="">
         {post.description.substring(0, 60) + "..."}
-      </p>
+      </p> -->
       {
         post.author && (
           <div class="flex items-center space-x-4">
