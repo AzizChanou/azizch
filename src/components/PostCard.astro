@@ -1,16 +1,17 @@
 ---
 import { Image } from "astro:assets";
 import FormattedDate from "./FormattedDate.astro";
+import { generateImageUrl } from "@/utils";
 
 const { post, page } = Astro.props;
 ---
 
 <a href={`/${page}/${post.slug}/`}>
   <div
-    class="group p-4 overflow-hidden rounded-lg shadow w-full shadow-white hover:scale-105 duration-300"
+    class="group p-4 overflow-hidden rounded-lg shadow h-full w-full shadow-white hover:scale-105 duration-300"
   >
     <Image
-      src={post.heroImage}
+      src={generateImageUrl(post.heroImage)}
       alt={post.title}
       height={176}
       width={256}
@@ -30,12 +31,12 @@ const { post, page } = Astro.props;
         )
       }
       <h2 class="text-xl font-bold text-wrap truncate">{post.title}</h2>
-      {post.description.substring(0, 60) + "..."}
-      <div>
-        <time datetime="2021-02-18" class="text-sm dark:text-gray-400">
-          <FormattedDate date={post.pubDate} />
-        </time>
-      </div>
+      <p>
+        {post.description.substring(0, 60) + "..."}
+      </p>
+      <time datetime="2021-02-18" class="text-sm dark:text-gray-400">
+        <FormattedDate date={post.pubDate} />
+      </time>
     </div>
   </div>
 </a>

@@ -8,19 +8,21 @@ const blog = defineCollection({
 		tags: z.array(z.string()).optional(),
 		description: z.string(),
 		pubDate: z.coerce.date(),
-		heroImage: z.string().optional(),
+		heroImage: z.string(),
+		draft: z.boolean().default(true),
 	}),
 });
 
 const projects = defineCollection({
-	type: 'content',
-	schema: z.object({
-		id: z.number(),
-		title: z.string(),
-		description: z.string(),
-		pubDate: z.coerce.date(),
-		heroImage: z.string().optional(),
-	}),
+  type: "content",
+  schema: z.object({
+    id: z.number(),
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    heroImage: z.string(),
+    draft: z.boolean().default(true),
+  }),
 });
 
 export const collections = { blog, projects };

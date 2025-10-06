@@ -21,7 +21,7 @@ export default defineConfig({
 
   markdown: {
     shikiConfig: {
-      theme: 'dark-plus',
+      theme: 'aurora-x',
       transformers: [],
     },
     remarkPlugins: [remarkReadingTime, remarkModifiedTime],

@@ -1,0 +1,52 @@
+---
+import Default from "../../layouts/Default.astro";
+import PostCard from "../../components/PostCard.astro";
+import Pagination from "../../components/Pagination.astro";
+import type { GetStaticPaths } from "astro";
+import { getSortedContents } from "@/utils";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const sortedPosts = await getSortedContents("projects");
+  return paginate(sortedPosts.reverse(), { pageSize: 9 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const pageTitle =
+  "Projects" + (page.currentPage > 1 ? ` - Page ${page.currentPage}` : "");
+---
+
+<Default
+  title={pageTitle}
+  description="Explorez les projets d'Aziz Chanou : applications web sur mesure, et solutions SaaS conçues avec Nuxt.js, Laravel et bien plus."
+>
+  <div class="h-full w-full flex flex-col justify-center items-center">
+    <h3
+      class="text-5xl font-montserrat-alternates text-center font-semibold uppercase"
+    >
+      Projects
+    </h3>
+
+    {
+      page.data.length === 0 && (
+        <div class="flex flex-col justify-center items-center w-full min-h-96">
+          <h2 class="text-xl font-montserrat-alternates font-semibold">
+            No projects for now.
+          </h2>
+        </div>
+      )
+    }
+    <div class="h-full w-full mt-4 grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+      {
+        page.data.map((post) => (
+          <PostCard page="blog" post={{ ...post.data, slug: post.slug }} />
+        ))
+      }
+    </div>
+    <Pagination
+      prevLink={page.url.prev ? page.url.prev : undefined}
+      prevText="Newer Posts"
+      nextLink={page.url.next ? page.url.next : undefined}
+      nextText="Older Posts"
+    />
+  </div>
+</Default>

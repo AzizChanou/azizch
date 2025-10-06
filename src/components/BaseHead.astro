@@ -1,12 +1,6 @@
 ---
 import "../assets/css/global.css";
-import {
-  SITE_DESCRIPTION,
-  SITE_TITLE,
-  SITE_ICON,
-  SITE_IMAGE,
-  SITE_URL,
-} from "../consts";
+import { siteConfig } from "../consts";
 import { SEO } from "astro-seo";
 import GoogleAnalytics from "./GoogleAnalytics.astro";
 
@@ -16,25 +10,23 @@ export interface Props {
   image?: string;
 }
 
-const canonicalURL = SITE_URL;
+const canonicalURL = siteConfig.site;
 
 const {
   title,
-  description = SITE_DESCRIPTION,
-  image = SITE_IMAGE,
+  description = siteConfig.description,
+  image = siteConfig.image,
 } = Astro.props;
-const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
+const full_title = `${title ? title + " | " : ""} ${siteConfig.title}`;
 ---
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="icon" type="image/svg+xml" href={SITE_ICON} />
   <meta name="generator" content={Astro.generator} />
 
+  <link rel="icon" type="image/svg+xml" href={siteConfig.icon} />
   <link rel="canonical" href={canonicalURL} />
-
-  <script src="../assets/ts"></script>
 
   <title data-title={full_title}>{full_title}</title>
   <meta name="title" content={full_title} />
@@ -52,7 +44,7 @@ const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
       },
       image: {
         alt: full_title,
-        height: 1200,
+        height: 630,
         width: 1200,
         secureUrl: image,
         type: "image/jpeg",
@@ -69,7 +61,7 @@ const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
       creator: "@azizchanou",
     }}
     extend={{
-      link: [{ rel: "icon", href: SITE_ICON, type: "image/svg+xml" }],
+      link: [{ rel: "icon", href: siteConfig.icon, type: "image/svg+xml" }],
       meta: [{}],
     }}
   />
@@ -79,6 +71,7 @@ const full_title = `${title ? title + " | " : ""} ${SITE_TITLE}`;
       <GoogleAnalytics id="G-V648TRT3XT" />
     )
   }
+  <script src="../assets/ts"></script>
 
   <script>
     window.addEventListener("blur", () => {
