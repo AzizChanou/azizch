@@ -11,13 +11,16 @@ import rehypeFigureTitle from 'rehype-figure-title'
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis'
 import { remarkReadingTime } from './src/plugins/remark-reading-time.mjs'
 import { remarkModifiedTime } from './src/plugins/remark-modified-time.mjs'
+import robotsTxt from 'astro-robots-txt';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kyogre.dev',
-  integrations: [mdx(), sitemap(), icon(), react()],
+  integrations: [mdx(), sitemap(), icon(), react(), (await import("@playform/compress")).default({
+    JSON: false
+  }), robotsTxt()],
 
   markdown: {
     shikiConfig: {

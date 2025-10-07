@@ -1,5 +1,4 @@
 import { getCollection } from "astro:content";
-import { siteConfig } from "./consts";
 
 export async function getSortedContents(content: "blog" | "projects" = "blog") {
   const allContents = await getCollection(content, ({ data }) => {

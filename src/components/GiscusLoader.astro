@@ -68,7 +68,7 @@ const reactionsEnabled = giscusConfig.reactionsEnabled ? "1" : "0";
   }
   async function updateTheme(theme: string) {
     console.log("Updating Giscus theme to:", theme);
-    let giscusFrame;
+    let giscusFrame: HTMLIFrameElement | null = null;
     // Try to find the Giscus iframe 3 times, in case it takes a moment to load
     for (let i = 0; i < 3; i++) {
       giscusFrame = document.querySelector<HTMLIFrameElement>(
