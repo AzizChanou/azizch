@@ -43,9 +43,10 @@ const { Content, remarkPluginFrontmatter } = await post.render();
     <Image
       src={generateImageUrl(post.data.heroImage)}
       alt={post.data.title}
-      inferSize
       class="w-full h-full max-h-96 object-cover rounded"
       loading="lazy"
+      width={1200}
+      height={600}
     />
 
     <div class="text-lg flex items-center gap-4 flex-wrap">
