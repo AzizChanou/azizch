@@ -4,7 +4,7 @@ import HMenu from "./HMenu.astro";
 import { siteConfig } from "@/consts";
 ---
 
-<header class="flex justify-between w-full text-2xl my-4 md:py-6">
+<header class="flex items-center justify-between text-2xl m-4 md:py-6">
   <div class="flex justify-between items-center">
     <button id="navMenu">
       <HMenu class="size-6" />
@@ -12,13 +12,15 @@ import { siteConfig } from "@/consts";
     <ul class="hidden space-x-4 md:flex">
       {
         siteConfig.navLinks.map((link) => (
-          <li class="hover:text-slate-300 duration-300"><a href={link.url}>{link.name}</a></li>
+          <li class="hover:text-slate-300 duration-300">
+            <a href={link.url}>{link.name}</a>
+          </li>
         ))
       }
     </ul>
   </div>
-  <div class="flex justify-between items-center space-x-8">
-    <ul class="flex space-x-4">
+  <div class="flex items-center gap-x-6">
+    <ul class="flex items-center gap-x-4">
       <li class="hover:text-slate-500 hover:scale-110 duration-300">
         <a
           rel="noopener"
@@ -60,32 +62,19 @@ import { siteConfig } from "@/consts";
         </a>
       </li>
     </ul>
-    <ul class="flex space-x-1">
-      <li class="group relative">
-        <button
-          id="download-cv"
-          class="hover:bg-slate-100/30 p-2 duration-300 rounded-full hover:animate-wiggle"
-        >
-          <Icon name="mdi:file-download" class="text-3xl" />
-        </button>
-        <span
-          class="invisible group-hover:visible absolute top-12 left-1/2 translate-x-[-50%] duration-300 text-sm text-nowrap"
-          >Télécharger mon CV</span
-        >
-      </li>
-      <!-- <li class="group relative">
-        <button
-          id="theme-button"
-          class="hover:bg-slate-100/30 p-2 duration-300 rounded-full hover:animate-wiggle"
-        >
-          <Icon name="mdi:theme-light-dark" class="text-3xl" />
-        </button>
-        <span
-          class="invisible group-hover:visible absolute top-12 left-1/2 translate-x-[-50%] duration-300 text-sm text-nowrap"
-          >Switcher de thème</span
-        >
-      </li> -->
-    </ul>
+    <div class="group relative flex items-center">
+      <button
+        id="download-cv"
+        aria-label="Télécharger mon CV"
+        class="hover:bg-slate-100/30 duration-300 rounded-full hover:animate-wiggle"
+      >
+        <Icon name="mdi:file-download" class="text-3xl" />
+      </button>
+      <span
+        class="invisible group-hover:visible absolute top-12 left-1/2 translate-x-[-50%] duration-300 text-sm"
+        >Télécharger mon CV</span
+      >
+    </div>
   </div>
 </header>
 

@@ -4,7 +4,7 @@ export const TODAY = new Date();
 
 export const siteConfig = {
   site: "https://kyogre.dev",
-  title: "Aziz Chanou",
+  title: "Kyogre",
   icon: generateImageUrl("/img/logo_white.svg"),
   image: generateImageUrl("/img/me.jpg"),
   description:

@@ -5,6 +5,8 @@ import HeadBar from "../components/HeadBar.astro";
 import FootBar from "../components/FootBar.astro";
 import DotPointer from "../components/DotPointer.astro";
 import MobileMenu from "../components/MobileMenu.astro";
+import { Image } from "astro:assets";
+import { generateImageUrl } from "@/utils";
 
 const { title, description, image } = Astro.props;
 ---
@@ -12,10 +14,10 @@ const { title, description, image } = Astro.props;
 <!doctype html>
 <html data-theme="dark" lang="fr" class="lenis lenis-smooth">
   <BaseHead title={title} description={description} image={image} />
-  <body class="h-full w-full bg-slate-950 text-white font-jost relative">
+  <body class="bg-slate-950 text-white font-jost relative">
     <DotPointer />
     <main
-      class="min-h-dvh h-full flex flex-col max-w-(--breakpoint-xl) mx-auto"
+      class="min-h-dvh h-full flex flex-col max-w-7xl mx-auto"
     >
       <HeadBar />
       <MobileMenu />
@@ -27,10 +29,13 @@ const { title, description, image } = Astro.props;
       </div>
       <FootBar />
     </main>
-    <img
-      src="/img/pxfuel.jpg"
+    <Image
+      src={generateImageUrl("/img/pxfuel.jpg")}
       class="fixed top-0 -z-50 h-full w-full object-cover blur-lg opacity-20"
       alt="Background"
+      loading="lazy"
+      fetchpriority="high"
+      inferSize
     />
   </body>
 </html>
