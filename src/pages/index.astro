@@ -1,6 +1,9 @@
 ---
+import { GITHUB_CONFIG } from "../consts";
 import Hero from "../components/Hero.astro";
 import Default from "../layouts/Default.astro";
+import GithubContributions from "../components/GithubContributions";
+const { GITHUB_USERNAME, TOOLTIP_ENABLED } = GITHUB_CONFIG;
 ---
 
 <Default
@@ -10,4 +13,10 @@ import Default from "../layouts/Default.astro";
   <div class="h-full w-full flex flex-col items-center justify-center">
     <Hero />
   </div>
+  <GithubContributions
+    username={GITHUB_USERNAME}
+    tooltipEnabled={TOOLTIP_ENABLED}
+    client:load
+    transition:animate="none"
+  />
 </Default>
