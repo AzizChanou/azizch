@@ -5,7 +5,7 @@ export const TODAY = new Date();
 export const siteConfig = {
   site: "https://kyogre.dev",
   title: "Kyogre",
-  icon: generateImageUrl("/img/logo_white.svg"),
+  icon: generateImageUrl("/img/ky.png"),
   image: generateImageUrl("/img/me.jpg"),
   description:
     "Portfolio of Aziz Chanou, a full-stack developer specializing in JavaScript and PHP. Discover my projects, my skills, and my vision of modern software development.",
