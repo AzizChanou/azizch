@@ -1,0 +1,27 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BlogPost from "@/layouts/BlogPost.astro";
+import type { MarkdownHeading } from "astro";
+
+const we = await getCollection("we");
+const [me] = we;
+
+const { Content, headings } = await me.render();
+---
+
+<BlogPost
+  {...me.data}
+  headings={headings}
+>
+  <article class="space-y-4 max-w-(--breakpoint-lg)">
+    <h1
+      class="text-4xl md:text-6xl text-center font-montserrat-alternates font-semibold"
+    >
+      {me.data.title}
+    </h1>
+
+    <div class="text-white text-justify font-normal">
+      <Content />
+    </div>
+  </article>
+</BlogPost>
