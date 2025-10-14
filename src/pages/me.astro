@@ -1,17 +1,17 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import BlogPost from "@/layouts/BlogPost.astro";
-import type { MarkdownHeading } from "astro";
 
 const we = await getCollection("we");
 const [me] = we;
 
-const { Content, headings } = await me.render();
+const { Content, headings, remarkPluginFrontmatter } = await me.render();
 ---
 
 <BlogPost
   {...me.data}
   headings={headings}
+  remarkPluginFrontmatter={remarkPluginFrontmatter}
 >
   <article class="space-y-4 max-w-(--breakpoint-lg)">
     <h1

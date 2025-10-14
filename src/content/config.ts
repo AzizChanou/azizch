@@ -28,8 +28,12 @@ const projects = defineCollection({
 const we = defineCollection({
   type: "content",
   schema: z.object({
+    id: z.number(),
     title: z.string(),
     description: z.string(),
+    pubDate: z.coerce.date(),
+    heroImage: z.string(),
+    draft: z.boolean().default(true),
   }),
 });
 

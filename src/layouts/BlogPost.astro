@@ -13,7 +13,7 @@ type Props = CollectionEntry<"blog">["data"] & {
   remarkPluginFrontmatter: Record<string, string>;
 };
 
-const { title, description, headings, heroImage } = Astro.props;
+const { title, description, headings, heroImage = "" } = Astro.props;
 const { href } = Astro.url;
 ---
 
