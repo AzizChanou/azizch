@@ -6,7 +6,9 @@ import { generateImageUrl } from "@/utils";
 const { post, page } = Astro.props;
 ---
 
-<a href={`/${page}/${post.slug}/`}>
+<a
+  href={page === "projects" ? `#` : `/${page}/${post.slug}/`}
+>
   <div
     class="group p-4 overflow-hidden rounded-lg shadow h-full w-full shadow-white hover:scale-105 duration-300"
   >
