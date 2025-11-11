@@ -4,9 +4,10 @@ title: 'Backend vs. frontend: where does data intelligence truly belong?'
 description: 'A comprehensive guide on optimally distributing business rules, security logic, and data transformation between the server and the client in modern full-stack applications.'
 tags: ['full-stack', 'architecture', 'best-practices', 'data-management', 'performance', 'security']
 pubDate: 'Nov 04 2025'
-draft: true
+draft: false
 heroImage: '/img/backend-or-frontend.jpg'
 ---
+
 ## The great divide: backend vs. frontend – where does data intelligence truly belong?
 
 As full stack developers, we constantly face the decision of where to put the logic. Should the server handle this date formatting? Does the client need to validate this user input? Where is the optimal place for our business rules to live? This isn't just a technical question; it’s a **strategic decision** that dictates performance, security, maintainability, and user experience.
